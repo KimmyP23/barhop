@@ -1,5 +1,7 @@
 class BarsController < ApplicationController
   def index
+    @neighborhood = Neighborhood.find(params[:neighborhood_id])
+    @bars = @neighborhood.bars
   end
 
   def show

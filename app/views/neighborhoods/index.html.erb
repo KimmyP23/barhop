@@ -1,1 +1,6 @@
 <h1>neighborhoods#index</h1>
+<ul>
+<% @neighborhoods.each do |neighborhood| %>
+  <li><%= link_to neighborhood.name, neighborhood_bars_path(neighborhood) %></li>
+<% end %>
+</ul>
