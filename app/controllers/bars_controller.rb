@@ -21,8 +21,11 @@ class BarsController < ApplicationController
   end
 
   def new
-    # @neighborhood = Neighborhood.find(params[:neighborhood_id])
     @bar = Bar.new
+
+    if request.xhr?
+      render partial: 'form'
+    end
   end
 
   def edit

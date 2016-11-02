@@ -1,0 +1,15 @@
+<%= form_for [@neighborhood, @bar], remote: true do |f| %>
+  <div id="form-part">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div id="form-part">
+    <%= f.label :specialty_drink %>
+    <%= f.text_field :specialty_drink, placeholder: "Specialty drink" %>
+  </div>
+  <div id="form-part">
+    <%= f.label :cash_only %>
+    <%= f.select :cash_only, options_for_select([["true", true], ["false", false]])%>
+  </div>
+    <%= f.submit %>
+<% end %>

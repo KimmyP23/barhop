@@ -10,4 +10,6 @@ Rails.application.routes.draw do
         resources :bars
       end
 
+      get '/neighborhoods/all', to: 'neighborhoods#index'
+
 end

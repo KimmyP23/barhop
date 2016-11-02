@@ -2,7 +2,12 @@
 <p>Find me in app/views/bars/index.html.erb</p>
 
 <h1><%= @neighborhood.name %></h1>
-<%= link_to 'Add a new bar!', new_neighborhood_bar_path(@neighborhood) %>
+<%= link_to 'Add a new bar!', new_neighborhood_bar_path(@neighborhood), remote: true, id: "add-bar-link" %>
+
+<div id="form-holder">
+
+</div>
+
 <ul>
   <% @bars.each do |bar| %>
     <li><%= link_to bar.name, neighborhood_bar_path(@neighborhood, bar) %></li>
