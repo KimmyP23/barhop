@@ -1,5 +1,5 @@
 class BarsController < ApplicationController
-  before_action :find_neighborhood, only: [:index, :new, :create, :show]
+  before_action :find_neighborhood
   before_action :find_bar, except: [:index, :new, :create]
 
   def index
@@ -29,9 +29,17 @@ class BarsController < ApplicationController
   end
 
   def update
+    if @bar.update(bar_params)
+      redirect_to neighborhood_bar_path(@neighborhood, @bar)
+    else
+      @errors = @bar.errors.full_messages
+      render 'edit'
+    end
   end
 
   def destroy
+    @bar.destroy
+    redirect_to neighborhood_bars_path(@neighborhood)
   end
 
 

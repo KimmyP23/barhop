@@ -1,9 +1,13 @@
 <h1><%= @bar.name %></h1>
 <p>Neighborhood:</p>
-  <%= @bar.neighborhood.name %>
+  <%= @neighborhood.name %>
 
 <p>Specialty Drink:</p>
   <%= @bar.specialty_drink %>
 
 <p>Cash only?</p>
   <%= @bar.cash_only %>
+
+<%= link_to 'Edit bar info', edit_neighborhood_bar_path(@neighborhood, @bar) %>
+
+<%= link_to 'Delete bar', neighborhood_bar_path(@neighborhood, @bar), method: 'delete' %>
