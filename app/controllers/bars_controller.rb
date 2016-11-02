@@ -12,8 +12,13 @@ class BarsController < ApplicationController
 
   def create
     @bar = @neighborhood.bars.new(bar_params)
+
     if @bar.save
-      redirect_to neighborhood_bar_path(@neighborhood, @bar)
+      if request.xhr?
+        render json: @bar
+      else
+        redirect_to neighborhood_bar_path(@neighborhood, @bar)
+      end
     else
       @errors = @bar.errors.full_messages
       render 'new'
