@@ -1,2 +1,9 @@
-<h1>Bars#show</h1>
-<p>Find me in app/views/bars/show.html.erb</p>
+<h1><%= @bar.name %></h1>
+<p>Neighborhood:</p>
+  <%= @bar.neighborhood.name %>
+
+<p>Specialty Drink:</p>
+  <%= @bar.specialty_drink %>
+
+<p>Cash only?</p>
+  <%= @bar.cash_only %>
